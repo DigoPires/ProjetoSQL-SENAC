@@ -129,6 +129,7 @@ desc tb_Artistas;
 desc tb_Categorias;
 desc tb_Cidades;
 desc tb_Clientes;
+desc tb_Pedidos;
 desc tb_Conjuge;
 desc tb_Dependentes;
 desc tb_Cidades;
@@ -142,15 +143,11 @@ insert into tb_Artistas(nome_art) values('Legião Urbana');
 insert into tb_Artistas(nome_art) values('The Beatles');
 insert into tb_Artistas(nome_art) values('Rita Lee');
 
-select * from tb_Artistas order by cod_art;
-
 -- Gravadoras
 insert into tb_Gravadoras(nome_grav) values('Polygram');
 insert into tb_Gravadoras(nome_grav) values('Emi');
 insert into tb_Gravadoras(nome_grav) values('Som Livre');
 insert into tb_Gravadoras(nome_grav) values('Som Music');
-
-select * from tb_Gravadoras order by cod_grav;
 
 -- Categorias
 insert into tb_Categorias(nome_cat) values('MPB');
@@ -158,15 +155,11 @@ insert into tb_Categorias(nome_cat) values('Trilha Sonora');
 insert into tb_Categorias(nome_cat) values('Rock Internacional');
 insert into tb_Categorias(nome_cat) values('Rock Nacional');
 
-select * from tb_Categorias order by cod_cat;
-
 -- Estados
 insert into tb_Estados(sigla_est, nome_est) values('SP','São Paulo');
 insert into tb_Estados(sigla_est, nome_est) values('MG','Minas Gerais');
 insert into tb_Estados(sigla_est, nome_est) values('RJ','Rio de Janeiro');
 insert into tb_Estados(sigla_est, nome_est) values('ES','Cachoeira Do Itapemirim');
-
-select * from tb_Estados;
 
 -- Cidades
 insert into tb_Cidades(sigla_est,nome_cid) values('SP','São Paulo');
@@ -176,8 +169,6 @@ insert into tb_Cidades(sigla_est,nome_cid) values('SP','Americana');
 insert into tb_Cidades(sigla_est,nome_cid) values('SP','Araraquara');
 insert into tb_Cidades(sigla_est,nome_cid) values('MG','Ouro Preto');
 insert into tb_Cidades(sigla_est,nome_cid) values('ES','Cachoeira Do Itapemirim');
-
-select * from tb_Cidades order by cod_cid;
 
 -- Clientes
 insert into tb_Clientes(cod_cid,nome_cli,end_cli,renda_cli,sexo_dep) values(1,'José Nogueira','Rua A',1500.00,'M');
@@ -191,15 +182,11 @@ insert into tb_Clientes(cod_cid,nome_cli,end_cli,renda_cli,sexo_dep) values(2,'P
 insert into tb_Clientes(cod_cid,nome_cli,end_cli,renda_cli,sexo_dep) values(3,'Fátima Souza','Rua I',1632.00,'F');
 insert into tb_Clientes(cod_cid,nome_cli,end_cli,renda_cli,sexo_dep) values(3,'Joel da Rocha','Rua J',2000.00,'M');
 
-select * from tb_Clientes order by cod_cli;
-
 -- Conjuge
 insert into tb_Conjuge(cod_conj, nome_conj, renda_conj, sexo_conj) values(1,'Carla Nogueira',2500.00,'F');
 insert into tb_Conjuge(cod_conj, nome_conj, renda_conj, sexo_conj) values(2,'Emilia Pereira',5500.00,'F');
 insert into tb_Conjuge(cod_conj, nome_conj, renda_conj, sexo_conj) values(6,'Altiva da Costa',3000.00,'F');
 insert into tb_Conjuge(cod_conj, nome_conj, renda_conj, sexo_conj) values(7,'Carlos de Souza',3250.00,'M');
-
-select * from tb_Conjuge order by cod_conj;
 
 -- Funcionarios
 insert into tb_Funcionarios(nome_func,end_func,sal_func,sexo_func) values('Vânia Gabriela Pereira', 'Rua A', 2500.00, 'F');
@@ -208,8 +195,6 @@ insert into tb_Funcionarios(nome_func,end_func,sal_func,sexo_func) values('Olavo
 insert into tb_Funcionarios(nome_func,end_func,sal_func,sexo_func) values('Paulo da Silva', 'Rua D', 3000.00, 'F');
 insert into tb_Funcionarios(nome_func,end_func,sal_func,sexo_func) values('Rolando Rocha', 'Rua E', 2000.00, 'M');
 
-select * from tb_Funcionarios order by cod_func;
-
 -- Dependentes
 insert into tb_Dependentes(cod_func,nome_dep,sexo_dep) values(1,'Ana Pereira','F');
 insert into tb_Dependentes(cod_func,nome_dep,sexo_dep) values(1,'Roberto Pereira','M');
@@ -217,8 +202,6 @@ insert into tb_Dependentes(cod_func,nome_dep,sexo_dep) values(1,'Celso Pereira',
 insert into tb_Dependentes(cod_func,nome_dep,sexo_dep) values(3,'Brisa Linhares','F');
 insert into tb_Dependentes(cod_func,nome_dep,sexo_dep) values(3,'Mari Sol Linhares','F');
 insert into tb_Dependentes(cod_func,nome_dep,sexo_dep) values(4,'Sonia da Silva','F');
-
-select * from tb_Dependentes order by cod_dep;
 
 -- Titulos
 insert into tb_Titulos(cod_cat, cod_grav, nome_cd, val_cd, qtd_estq) values(1,1,'Tribalistas',30.00,1500);
@@ -232,21 +215,17 @@ insert into tb_Titulos(cod_cat, cod_grav, nome_cd, val_cd, qtd_estq) values(4,3,
 insert into tb_Titulos(cod_cat, cod_grav, nome_cd, val_cd, qtd_estq) values(3,2,'The Beatles',30.00,300);
 insert into tb_Titulos(cod_cat, cod_grav, nome_cd, val_cd, qtd_estq) values(4,1,'Rita Lee',30.00,500);
 
-select * from tb_Titulos order by cod_tit;
-
 -- Pedidos
-insert into tb_Pedidos(cod_cid,cod_func,data_ped,val_ped) values(1,2,'02/05/02',1500.00);
-insert into tb_Pedidos(cod_cid,cod_func,data_ped,val_ped) values(3,4,'02/05/02',50.00);
-insert into tb_Pedidos(cod_cid,cod_func,data_ped,val_ped) values(4,7,'02/06/02',100.00);
-insert into tb_Pedidos(cod_cid,cod_func,data_ped,val_ped) values(1,4,'02/02/03',200.00);
-insert into tb_Pedidos(cod_cid,cod_func,data_ped,val_ped) values(7,5,'02/03/03',300.00);
-insert into tb_Pedidos(cod_cid,cod_func,data_ped,val_ped) values(4,4,'02/03/03',100.00);
-insert into tb_Pedidos(cod_cid,cod_func,data_ped,val_ped) values(5,5,'02/03/03',50.00);
-insert into tb_Pedidos(cod_cid,cod_func,data_ped,val_ped) values(8,2,'02/03/03',50.00);
-insert into tb_Pedidos(cod_cid,cod_func,data_ped,val_ped) values(2,2,'02/03/03',2000.00);
-insert into tb_Pedidos(cod_cid,cod_func,data_ped,val_ped) values(7,1,'02/03/03',3000.00);
-
-select * from tb_Pedidos order by num_ped;
+insert into tb_Pedidos(cod_cli,cod_func,data_ped,val_ped) values(1,2,'02/05/02',1500.00);
+insert into tb_Pedidos(cod_cli,cod_func,data_ped,val_ped) values(3,4,'02/05/02',50.00);
+insert into tb_Pedidos(cod_cli,cod_func,data_ped,val_ped) values(4,5,'02/06/02',100.00);
+insert into tb_Pedidos(cod_cli,cod_func,data_ped,val_ped) values(1,4,'02/02/03',200.00);
+insert into tb_Pedidos(cod_cli,cod_func,data_ped,val_ped) values(7,5,'02/03/03',300.00);
+insert into tb_Pedidos(cod_cli,cod_func,data_ped,val_ped) values(4,4,'02/03/03',100.00);
+insert into tb_Pedidos(cod_cli,cod_func,data_ped,val_ped) values(5,5,'02/03/03',50.00);
+insert into tb_Pedidos(cod_cli,cod_func,data_ped,val_ped) values(8,2,'02/03/03',50.00);
+insert into tb_Pedidos(cod_cli,cod_func,data_ped,val_ped) values(2,2,'02/03/03',2000.00);
+insert into tb_Pedidos(cod_cli,cod_func,data_ped,val_ped) values(7,1,'02/03/03',3000.00);
 
 -- Titulos Artista
 insert into tb_Titulos_Artista(cod_tit,cod_art) values(1,1);
@@ -260,19 +239,32 @@ insert into tb_Titulos_Artista(cod_tit,cod_art) values(8,5);
 insert into tb_Titulos_Artista(cod_tit,cod_art) values(9,6);
 insert into tb_Titulos_Artista(cod_tit,cod_art) values(10,7);
 
-select * from tb_Titulos_Artista;
-
 -- Titulos Pedido
-insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_estq,val_cd) values(1,1,2,30.00);
-insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_estq,val_cd) values(1,2,3,20.00);
-insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_estq,val_cd) values(2,1,1,50.00);
-insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_estq,val_cd) values(2,2,3,30.00);
-insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_estq,val_cd) values(3,1,2,40.00);
-insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_estq,val_cd) values(4,2,3,20.00);
-insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_estq,val_cd) values(5,1,2,25.00);
-insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_estq,val_cd) values(6,2,3,30.00);
-insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_estq,val_cd) values(6,3,1,35.00);
-insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_estq,val_cd) values(7,4,2,55.00);
-insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_estq,val_cd) values(8,1,4,60.00);
-insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_estq,val_cd) values(9,2,3,15.00);
-insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_estq,val_cd) values(10,7,2,15.00);
+insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_cd,val_cd) values(1,1,2,30.00);
+insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_cd,val_cd) values(1,2,3,20.00);
+insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_cd,val_cd) values(2,1,1,50.00);
+insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_cd,val_cd) values(2,2,3,30.00);
+insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_cd,val_cd) values(3,1,2,40.00);
+insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_cd,val_cd) values(4,2,3,20.00);
+insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_cd,val_cd) values(5,1,2,25.00);
+insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_cd,val_cd) values(6,2,3,30.00);
+insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_cd,val_cd) values(6,3,1,35.00);
+insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_cd,val_cd) values(7,4,2,55.00);
+insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_cd,val_cd) values(8,1,4,60.00);
+insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_cd,val_cd) values(9,2,3,15.00);
+insert into tb_Titulos_Pedido(num_ped,cod_tit,qtd_cd,val_cd) values(10,7,2,15.00);
+
+-- Mostrando dados das tabelas
+select * from tb_Artistas order by cod_art;
+select * from tb_Gravadoras order by cod_grav;
+select * from tb_Categorias order by cod_cat;
+select * from tb_Estados;
+select * from tb_Cidades order by cod_cid;
+select * from tb_Clientes order by cod_cli;
+select * from tb_Conjuge order by cod_conj;
+select * from tb_Funcionarios order by cod_func;
+select * from tb_Dependentes order by cod_dep;
+select * from tb_Titulos order by cod_tit;
+select * from tb_Pedidos order by num_ped;
+select * from tb_Titulos_Artista;
+select * from tb_Titulos_Pedido;
