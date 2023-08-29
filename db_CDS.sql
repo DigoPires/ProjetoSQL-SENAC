@@ -54,12 +54,14 @@ create table tb_Clientes(
 );
 
 create table tb_Conjuge(
-    cod_conj int not null,
+    cod_conj int not null auto_increment,
+    cod_cli int not null,
     nome_conj varchar(50) not null,
     renda_conj decimal(9,2) not null default 0 check(renda_conj >= 0),
     sexo_conj char(1) not null default 'F' check(sexo_conj in('F','M')),
 
-    primary key(cod_conj)
+    primary key(cod_conj),
+    foreign key(cod_cli) references tb_Clientes(cod_cli)
 );
 
 create table tb_Funcionarios(
@@ -183,10 +185,10 @@ insert into tb_Clientes(cod_cid,nome_cli,end_cli,renda_cli,sexo_dep) values(3,'F
 insert into tb_Clientes(cod_cid,nome_cli,end_cli,renda_cli,sexo_dep) values(3,'Joel da Rocha','Rua J',2000.00,'M');
 
 -- Conjuge
-insert into tb_Conjuge(cod_conj, nome_conj, renda_conj, sexo_conj) values(1,'Carla Nogueira',2500.00,'F');
-insert into tb_Conjuge(cod_conj, nome_conj, renda_conj, sexo_conj) values(2,'Emilia Pereira',5500.00,'F');
-insert into tb_Conjuge(cod_conj, nome_conj, renda_conj, sexo_conj) values(6,'Altiva da Costa',3000.00,'F');
-insert into tb_Conjuge(cod_conj, nome_conj, renda_conj, sexo_conj) values(7,'Carlos de Souza',3250.00,'M');
+insert into tb_Conjuge(cod_cli, nome_conj, renda_conj, sexo_conj) values(1,'Carla Nogueira',2500.00,'F');
+insert into tb_Conjuge(cod_cli, nome_conj, renda_conj, sexo_conj) values(2,'Emilia Pereira',5500.00,'F');
+insert into tb_Conjuge(cod_cli, nome_conj, renda_conj, sexo_conj) values(6,'Altiva da Costa',3000.00,'F');
+insert into tb_Conjuge(cod_cli, nome_conj, renda_conj, sexo_conj) values(7,'Carlos de Souza',3250.00,'M');
 
 -- Funcionarios
 insert into tb_Funcionarios(nome_func,end_func,sal_func,sexo_func) values('Vânia Gabriela Pereira', 'Rua A', 2500.00, 'F');
@@ -268,3 +270,29 @@ select * from tb_Titulos order by cod_tit;
 select * from tb_Pedidos order by num_ped;
 select * from tb_Titulos_Artista;
 select * from tb_Titulos_Pedido;
+
+-- 1. Selecione o nome dos CDs e o nome da gravadora de cada CD.
+select tit.nome_cd, grav.nome_grav from tb_Titulos as tit inner join tb_Gravadoras as grav on tit.cod_grav = grav.cod_grav;
+
+-- 2. Selecione o nome dos CDs e o nome da categoria de cada CD.
+select tit.nome_cd, cat.nome_cat from tb_Titulos as tit inner join tb_Categorias as cat on tit.cod_cat = cat.cod_cat;
+
+-- 3. Selecione o nome dos CDs, o nome das gravadoras de cada CD e o nome da categoria de cada CD.
+select tit.nome_cd, grav.nome_grav, cat.nome_cat from tb_Titulos as tit inner join tb_Gravadoras as grav on tit.cod_grav = grav.cod_grav inner join tb_Categorias as cat on tit.cod_cat = cat.cod_cat;
+
+-- 4. Selecione o nome dos clientes e os títulos dos CDs vendidos em cada pedido que o cliente fez.
+select cli.nome_cli, ped.num_ped, tit.nome_cd from tb_Clientes as cli inner join tb_Pedidos as ped on cli.cod_cli = ped.cod_cli left join tb_Titulos as tit on tit.cod_tit = cli.cod_cli;
+
+-- 5. Selecione o nome do funcionário, número, data e valor dos pedidos que este funcionário registrou, além do nome do cliente que está fazendo o pedido.
+select func.nome_func, ped.num_ped, ped.data_ped, ped.val_ped from tb_Funcionarios as func inner join tb_Pedidos as ped on func.cod_func = ped.cod_func;
+
+-- 6. Selecione o nome dos funcionários e o nome de todos os dependentes de cada funcionário.
+select func.nome_func, dep.nome_dep from tb_Funcionarios as func inner join tb_Dependentes as dep on func.cod_func = dep.cod_func;
+
+-- 7. Selecione o nome dos clientes e o nome dos cônjuges de cada cliente.
+select cli.nome_cli, conj.nome_conj from tb_Clientes as cli inner join tb_Conjuge as conj on cli.cod_cli = conj.cod_cli;
+
+-- 8. Selecione o nome de todos os clientes. Se estes possuem cônjuges, mostrar os nomes de seus cônjuges também.
+select cli.nome_cli, conj.nome_conj from tb_Clientes as cli left join tb_Conjuge as conj on cli.cod_cli = conj.cod_cli;
+
+-- 9. Selecione nome do cliente, nome do cônjuge, número do pedido que cada cliente fez, valor de cada pedido que cada cliente fez e código do funcionário que atendeu a cada pedido. 

@@ -16,12 +16,12 @@ create table tb_Funcionarios(
 );
 
 create table tb_Clientes(
-    id_Client int not null auto_increment,
+    id_Cli int not null auto_increment,
     nome varchar(50) not null,
     email varchar(50),
     telefone char(11),
 
-    primary key(id_Client)
+    primary key(id_Cli)
 );
 
 create table tb_Fornecedores(
@@ -59,7 +59,7 @@ create table tb_Produtos(
 create table tb_Vendas(
     id_Vend int not null auto_increment,
     id_Usu int not null,
-    id_Client int not null,
+    id_Cli int not null,
     id_Prod int not null,
     data_Venda date,
     quantidade decimal(9,2),
@@ -67,7 +67,7 @@ create table tb_Vendas(
 
     primary key(id_Vend),
     foreign key(id_Usu) references tb_Usuarios(id_Usu),
-    foreign key(id_Client) references tb_Clientes(id_Client),
+    foreign key(id_Cli) references tb_Clientes(id_Cli),
     foreign key(id_Prod) references tb_Produtos(id_Prod)
 );
 
@@ -93,9 +93,9 @@ insert into tb_Produtos(descricao,data_Entrada,hora_Entrada,quantidade,valor_Uni
 insert into tb_Produtos(descricao,data_Entrada,hora_Entrada,quantidade,valor_Unit,id_Forn)values ('Feijão','2023/08/09','10:37:23',50,8.50,1);
 insert into tb_Produtos(descricao,data_Entrada,hora_Entrada,quantidade,valor_Unit,id_Forn)values ('Bicicleta','2023/07/15','18:47:12',5,850.00,2);
 
-insert into tb_Vendas(id_Usu,id_Client,id_Prod,data_Venda,quantidade,valor_Total) values(1,2,1,'2023/07/30',2,40.00);
-insert into tb_Vendas(id_Usu,id_Client,id_Prod,data_Venda,quantidade,valor_Total) values(1,1,2,'2023/08/03',2,19.00);
-insert into tb_Vendas(id_Usu,id_Client,id_Prod,data_Venda,quantidade,valor_Total) values(1,1,3,'2023/08/10',1,850.00);
+insert into tb_Vendas(id_Usu,id_Cli,id_Prod,data_Venda,quantidade,valor_Total) values(1,2,1,'2023/07/30',2,40.00);
+insert into tb_Vendas(id_Usu,id_Cli,id_Prod,data_Venda,quantidade,valor_Total) values(1,1,2,'2023/08/03',2,19.00);
+insert into tb_Vendas(id_Usu,id_Cli,id_Prod,data_Venda,quantidade,valor_Total) values(1,1,3,'2023/08/10',1,850.00);
 
 select * from tb_Funcionarios;
 select * from tb_Clientes;
@@ -103,3 +103,19 @@ select * from tb_Fornecedores;
 select * from tb_Usuarios;
 select * from tb_Produtos;
 select * from tb_Vendas;
+
+-- Inner Join
+
+select usu.nome as 'Nome do usuário', func.nome as 'Nome do funcionário', func.email as 'E-mail do funcionário' from tb_Usuarios as usu inner join tb_Funcionarios as func on usu.id_Func = func.id_Func;
+
+select forn.nome, forn.cnpj, prod.descricao from tb_Produtos as prod inner join tb_Fornecedores as forn on prod.id_Forn = forn.id_Forn;
+
+select cli.nome, cli.email, cli.telefone, vend.data_Venda, vend.valor_Total from tb_Vendas as vend inner join tb_Clientes as cli on vend.id_Cli = cli.id_Cli;
+
+select cli.nome,cli.email, prod.descricao, vend.data_Venda from tb_Vendas as vend inner join tb_Clientes as cli on vend.id_Cli = cli.id_Cli inner join tb_Produtos as prod on vend.id_Prod = prod.id_Prod where vend.id_Vend = 1;
+
+select cli.nome,cli.email, prod.descricao, vend.data_Venda from tb_Vendas as vend inner join tb_Clientes as cli on vend.id_Cli = cli.id_Cli inner join tb_Produtos as prod on vend.id_Prod = prod.id_Prod where prod.descricao like '%b%';
+
+select prod.descricao,prod.quantidade from tb_Funcionarios as func left join tb_Produtos as prod on func.id_Func = prod.id_Prod;
+select prod.descricao,prod.quantidade from tb_Funcionarios as func right join tb_Produtos as prod on func.id_Func = prod.id_Prod;
+select prod.descricao,prod.quantidade from tb_Funcionarios as func inner join tb_Produtos as prod on func.id_Func = prod.id_Prod;
