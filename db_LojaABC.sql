@@ -19,3 +19,11 @@ create table tb_Funcionarios(
 
     primary key(cod_func)
 );
+
+-- select * from tb_Funcionarios where cod_func = 1;
+
+-- select * from tb_Funcionarios where nome like "%R%";
+
+-- select cod_func+1 from tb_Funcionarios order by cod_func desc;
+
+-- select * from tb_Funcionarios where nome = "";
