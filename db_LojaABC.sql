@@ -42,12 +42,17 @@ create table tb_Usuarios(
 
 -- select * from tb_Funcionarios where nome = "";
 
+-- Alterar usuarios
+
+-- update into tb_Usuarios set usuario = @usuario, senha = @senha where cod_Usu = @cod_Usu; 
+
 -- Backup
 
--- INSERT INTO `tb_funcionarios` (`cod_func`, `nome`, `email`, `cpf`, `d_Nasc`, `endereco`, `cep`, `numero`, `bairro`, `estado`, `cidade`) VALUES
--- (1, 'Rodrigo Pires', 'rodrigo.pfigueiredo1@senacsp.edu.br', '192.824.982-09', '2023-10-05', 'Rua João Batista Franco', '04842-230', '384', 'Parque Grajaú', 'SP', 'São Paulo'),
--- (2, 'Rafaela Alves', 'rafaela.alves@senacsp.edu.br', '294.526.186-29', '2023-10-05', 'Rua João Batista Franco', '04842-230', '362', 'Parque Grajaú', 'SP', 'São Paulo'),
--- (3, 'Vitor Teixeira', 'vitor.teixeira@senacsp.edu.br', '420.124.529-67', '2023-10-05', 'Rua João Batista Franco', '04842-230', '323', 'Parque Grajaú', 'SP', 'São Paulo'),
--- (4, 'Julio Machado', 'julio.machado@gmail.com', '342.512.509-79', '2023-10-05', 'Rua João Batista Franco', '04842-230', '462', 'Parque Grajaú', 'SP', 'São Paulo');
+INSERT INTO `tb_funcionarios` (`cod_func`, `nome`, `email`, `cpf`, `d_Nasc`, `endereco`, `cep`, `numero`, `bairro`, `estado`, `cidade`) VALUES
+(1, 'Rodrigo Pires', 'rodrigo.pfigueiredo1@senacsp.edu.br', '192.824.982-09', '2023-10-05', 'Rua João Batista Franco', '04842-230', '384', 'Parque Grajaú', 'SP', 'São Paulo'),
+(2, 'Rafaela Alves', 'rafaela.alves@senacsp.edu.br', '294.526.186-29', '2023-10-05', 'Rua João Batista Franco', '04842-230', '362', 'Parque Grajaú', 'SP', 'São Paulo'),
+(3, 'Vitor Teixeira', 'vitor.teixeira@senacsp.edu.br', '420.124.529-67', '2023-10-05', 'Rua João Batista Franco', '04842-230', '323', 'Parque Grajaú', 'SP', 'São Paulo'),
+(4, 'Julio Machado', 'julio.machado@gmail.com', '342.512.509-79', '2023-10-05', 'Rua João Batista Franco', '04842-230', '462', 'Parque Grajaú', 'SP', 'São Paulo');
 
--- insert into tb_Usuarios (usuario,senha,cod_func)values('admin','admin',1);
+insert into tb_Usuarios (usuario,senha,cod_func)values('admin','admin',1);
+insert into tb_Usuarios (usuario,senha,cod_func)values('Julio Machado','1234',4);
