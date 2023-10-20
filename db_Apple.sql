@@ -1,6 +1,6 @@
 -- Sistema de produtos da Apple.
 
--- drop database db_Apple;
+drop database db_Apple;
 
 create database db_Apple;
 
@@ -15,3 +15,11 @@ create table tb_Produtos(
 
     primary key(cod_prod)
 );
+
+-- insert into tb_Produtos(descricao,data_Entrada,quantidade,valor) values(@descricao,@data_Entrada,@quantidade,@valor);
+
+insert into tb_Produtos(descricao,data_Entrada,quantidade,valor) values("iPhone 13","2023/10/20","10","5499");
+
+-- update tb_Produtos set descricao = @descricao, data_Entrada = @data_Entrada, quantidade = @quantidade, valor = @valor where cod_prod = @cod_prod;
+
+-- delete from tb_Produtos where cod_prod = @cod_prod;
