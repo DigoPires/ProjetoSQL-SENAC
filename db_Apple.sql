@@ -18,10 +18,11 @@ create table tb_Produtos(
 
 -- insert into tb_Produtos(descricao,data_Entrada,quantidade,valor) values(@descricao,@data_Entrada,@quantidade,@valor);
 
-insert into tb_Produtos(descricao,data_Entrada,quantidade,valor) values("iPhone 13","2023/10/20","10","5499");
-insert into tb_Produtos(descricao,data_Entrada,quantidade,valor) values("Air Pods Pro","2023/10/20","10","1499");
-insert into tb_Produtos(descricao,data_Entrada,quantidade,valor) values("MacBook Air de 15 polegadas","2023/10/20","10","12499");
+insert into tb_Produtos(descricao,data_Entrada,quantidade,valor) values("iPhone 13","2023/10/20","12","5499");
+insert into tb_Produtos(descricao,data_Entrada,quantidade,valor) values("Air Pods Pro","2023/10/20","53","1499");
+insert into tb_Produtos(descricao,data_Entrada,quantidade,valor) values("MacBook Air de 15 polegadas","2023/10/20","07","12499");
+insert into tb_Produtos(descricao,data_Entrada,quantidade,valor) values("Apple Watch Ultra 2","2023/05/20","30","9699");
 
 -- update tb_Produtos set descricao = @descricao, data_Entrada = @data_Entrada, quantidade = @quantidade, valor = @valor where cod_prod = @cod_prod;
 
--- delete from tb_Produtos where cod_prod = @cod_prod;
+-- delete * from tb_Produtos where cod_prod = @cod_prod;
