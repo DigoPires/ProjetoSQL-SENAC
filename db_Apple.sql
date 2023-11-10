@@ -25,17 +25,17 @@ create table tb_Vendas(
     valor_total decimal(9,2) not null,
 
     primary key(cod_venda),
-    foreign key(cod_prod) from tb_Produtos(cod_prod)
+    foreign key(cod_prod) references tb_Produtos(cod_prod)
 )
 
 -- insert into tb_Produtos(descricao,data_Entrada,quantidade,valor_unit) values(@descricao,@data_Entrada,@quantidade,@valor_unit);
 
-insert into tb_Produtos(descricao,data_Entrada,quantidade,valorUnit) values("iPhone 13","2023/10/20","12","5499");
-insert into tb_Produtos(descricao,data_Entrada,quantidade,valorUnit) values("Air Pods Pro","2023/10/20","53","1499");
-insert into tb_Produtos(descricao,data_Entrada,quantidade,valorUnit) values("MacBook Air de 15 polegadas","2023/10/20","07","12499");
-insert into tb_Produtos(descricao,data_Entrada,quantidade,valorUnit) values("Apple Watch Ultra 2","2023/05/20","30","9699");
-insert into tb_Produtos(descricao,data_Entrada,quantidade,valorUnit) values("iPhone 7","2023/05/20","5","750");
+insert into tb_Produtos(descricao,data_Entrada,quantidade,valor_unit) values("iPhone 13","2023/10/20","12","5499");
+insert into tb_Produtos(descricao,data_Entrada,quantidade,valor_unit) values("Air Pods Pro","2023/10/20","53","1499");
+insert into tb_Produtos(descricao,data_Entrada,quantidade,valor_unit) values("MacBook Air de 15 polegadas","2023/10/20","07","12499");
+insert into tb_Produtos(descricao,data_Entrada,quantidade,valor_unit) values("Apple Watch Ultra 2","2023/05/20","30","9699");
+insert into tb_Produtos(descricao,data_Entrada,quantidade,valor_unit) values("iPhone 7","2023/05/20","5","750");
 
--- update tb_Produtos set descricao like @descricao, data_Entrada = @data_Entrada, quantidade = @quantidade, valorUnit = @valorUnit where cod_prod = @cod_prod;
+-- update tb_Produtos set descricao like @descricao, data_Entrada = @data_Entrada, quantidade = @quantidade, valor_unit = @valor_unit where cod_prod = @cod_prod;
 
 -- delete * from tb_Produtos where cod_prod = @cod_prod;
