@@ -37,6 +37,5 @@ insert into tb_Produtos(descricao,data_Entrada,quantidade,valorUnit) values("App
 insert into tb_Produtos(descricao,data_Entrada,quantidade,valorUnit) values("iPhone 7","2023/05/20","5","750");
 
 -- update tb_Produtos set descricao like @descricao, data_Entrada = @data_Entrada, quantidade = @quantidade, valorUnit = @valorUnit where cod_prod = @cod_prod;
->>>>>>> e38a33bc04fb137187fbcd68516a694cdbf048c3
 
 -- delete * from tb_Produtos where cod_prod = @cod_prod;
