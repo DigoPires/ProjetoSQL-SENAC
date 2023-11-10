@@ -22,7 +22,8 @@ insert into tb_Produtos(descricao,data_Entrada,quantidade,valorUnit) values("iPh
 insert into tb_Produtos(descricao,data_Entrada,quantidade,valorUnit) values("Air Pods Pro","2023/10/20","53","1499");
 insert into tb_Produtos(descricao,data_Entrada,quantidade,valorUnit) values("MacBook Air de 15 polegadas","2023/10/20","07","12499");
 insert into tb_Produtos(descricao,data_Entrada,quantidade,valorUnit) values("Apple Watch Ultra 2","2023/05/20","30","9699");
+insert into tb_Produtos(descricao,data_Entrada,quantidade,valorUnit) values("iPhone 7","2023/05/20","5","750");
 
--- update tb_Produtos set descricao = @descricao, data_Entrada = @data_Entrada, quantidade = @quantidade, valorUnit = @valorUnit where cod_prod = @cod_prod;
+-- update tb_Produtos set descricao like @descricao, data_Entrada = @data_Entrada, quantidade = @quantidade, valorUnit = @valorUnit where cod_prod = @cod_prod;
 
 -- delete * from tb_Produtos where cod_prod = @cod_prod;
