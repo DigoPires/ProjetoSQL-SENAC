@@ -24,6 +24,7 @@ create table tb_Vendas(
     quantidade decimal(9,2) not null,
     valor_total decimal(9,2) not null,
 
+<<<<<<< HEAD
     primary key(cod_venda),
     foreign key(cod_prod) from tb_Produtos(cod_prod)
 )
@@ -36,5 +37,14 @@ insert into tb_Produtos(descricao,data_Entrada,quantidade,valor_unit) values("Ma
 insert into tb_Produtos(descricao,data_Entrada,quantidade,valor_unit) values("Apple Watch Ultra 2","2023/05/20","30","9699");
 
 -- update tb_Produtos set descricao = @descricao, data_Entrada = @data_Entrada, quantidade = @quantidade, valor_unit = @valor_unit where cod_prod = @cod_prod;
+=======
+insert into tb_Produtos(descricao,data_Entrada,quantidade,valorUnit) values("iPhone 13","2023/10/20","12","5499");
+insert into tb_Produtos(descricao,data_Entrada,quantidade,valorUnit) values("Air Pods Pro","2023/10/20","53","1499");
+insert into tb_Produtos(descricao,data_Entrada,quantidade,valorUnit) values("MacBook Air de 15 polegadas","2023/10/20","07","12499");
+insert into tb_Produtos(descricao,data_Entrada,quantidade,valorUnit) values("Apple Watch Ultra 2","2023/05/20","30","9699");
+insert into tb_Produtos(descricao,data_Entrada,quantidade,valorUnit) values("iPhone 7","2023/05/20","5","750");
+
+-- update tb_Produtos set descricao like @descricao, data_Entrada = @data_Entrada, quantidade = @quantidade, valorUnit = @valorUnit where cod_prod = @cod_prod;
+>>>>>>> e38a33bc04fb137187fbcd68516a694cdbf048c3
 
 -- delete * from tb_Produtos where cod_prod = @cod_prod;
